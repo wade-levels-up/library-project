@@ -1,3 +1,7 @@
 :root { font-size: 16px; }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: rgb(43, 48, 48);
+}
