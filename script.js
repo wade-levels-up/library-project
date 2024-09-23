@@ -29,6 +29,15 @@ function removeRefresh(index) {
     populateInitialTable(myLibrary);
 }
 
+function updateReadStatus(index) {
+    if (myLibrary[index].read === 'on') {
+        myLibrary[index].read = 'off';
+    } else {
+        myLibrary[index].read = 'on';
+    }
+    populateInitialTable(myLibrary);
+}
+
 function populateInitialTable(array) {
 
     tbody.innerHTML = ''; // I don't like this solution...
@@ -45,18 +54,22 @@ function populateInitialTable(array) {
         let read = document.createElement('td');
         let remove = document.createElement('td');
         let removeBtn = document.createElement('button');
+        let toggleReadBtn = document.createElement('button');
 
         // Fill in the cells from the object data
         title.textContent = array[i].title;
         author.textContent = array[i].author;
         pages.textContent = array[i].pages;
         if (array[i].read === 'on') {
-            read.textContent = 'yes';
+            read.textContent = '✅';
         } else {
-            read.textContent = 'no'
+            read.textContent = '❌'
         }
+
+        toggleReadBtn.textContent = '📖';
+        toggleReadBtn.setAttribute('onclick', `updateReadStatus(${i})`);
         
-        removeBtn.textContent = 'X';
+        removeBtn.textContent = '❌';
         removeBtn.setAttribute('onclick', `removeRefresh(${i})`);
 
         // Add filled in elements into the table body
@@ -65,6 +78,7 @@ function populateInitialTable(array) {
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(read);
+        read.appendChild(toggleReadBtn);
         row.appendChild(remove);
         remove.appendChild(removeBtn);
     }
