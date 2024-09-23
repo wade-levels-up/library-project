@@ -19,11 +19,15 @@ Book.prototype.summary = function() {
 }
 
 // Add initial book to library, log to console to verify it's there
-const book1 = new Book('Lord Of The Rings', 'Tolken', 255, 'on');
-const book2 = new Book('Berserk vol:12', 'Kentaro Muira', 132, 'on');
+const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'on');
+const book2 = new Book('Berserk - Volume:12', 'Kentaro Miura', 232, 'on');
 myLibrary.push(book1);
 myLibrary.push(book2);
 
+function removeRefresh(index) {
+    myLibrary.splice(index, 1);
+    populateInitialTable(myLibrary);
+}
 
 function populateInitialTable(array) {
 
@@ -31,7 +35,7 @@ function populateInitialTable(array) {
 
     for (i in array) {
 
-        array[i].id = i;
+        index = i;
 
         // For each item in our library make a row of cells to fill in
         let row = document.createElement('tr');
@@ -52,12 +56,8 @@ function populateInitialTable(array) {
             read.textContent = 'no'
         }
         
-
         removeBtn.textContent = 'X';
-        removeBtn.onclick = function () {
-            // How can I make it delete?
-            populateInitialTable(myLibrary);
-        }
+        removeBtn.setAttribute('onclick', `removeRefresh(${i})`);
 
         // Add filled in elements into the table body
         tbody.appendChild(row);
