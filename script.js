@@ -21,7 +21,7 @@ Book.prototype.summary = function() {
     }
 }
 
-// Add initial book to library, log to console to verify it's there
+// Add initial books to library
 const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'off');
 const book2 = new Book('Berserk - Volume: 12', 'Kentaro Miura', 232, 'on');
 const book3 = new Book('Anime Architecture', 'Stefan Riekeles', 256, 'on');
@@ -43,7 +43,7 @@ function updateReadStatus(index) {
 
 function populateInitialTable(array) {
 
-    tbody.innerHTML = ''; // I don't like this solution...
+    tbody.innerText = '';
 
     for (i in array) {
 
