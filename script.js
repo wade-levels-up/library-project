@@ -1,8 +1,5 @@
 const addBookBtn = document.querySelector('#add-book-btn');
 const tbody = document.querySelector('tbody');
-const aside = document.querySelector('aside');
-const body = document.querySelector('body');
-const root = document.documentElement;
 
 let myLibrary = [];
 
@@ -13,14 +10,6 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.summary = function() {
-    if (this.read === true) {
-        return `${this.title} by ${this.author} has ${this.pages} pages. You've read this book`;
-    } else {
-        return `${this.title} by ${this.author} has ${this.pages} pages. You haven't read this book`
-    }
-}
-
 // Add initial books to library
 const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'off');
 const book2 = new Book('Berserk - Volume: 12', 'Kentaro Miura', 232, 'on');
@@ -29,7 +18,7 @@ myLibrary.push(book1); myLibrary.push(book2); myLibrary.push(book3);
 
 function removeRefresh(index) {
     myLibrary.splice(index, 1);
-    populateInitialTable(myLibrary);
+    populateTable(myLibrary);
 }
 
 function updateReadStatus(index) {
@@ -38,10 +27,10 @@ function updateReadStatus(index) {
     } else {
         myLibrary[index].read = 'on';
     }
-    populateInitialTable(myLibrary);
+    populateTable(myLibrary);
 }
 
-function populateInitialTable(array) {
+function populateTable(array) {
 
     tbody.innerText = '';
 
@@ -90,7 +79,7 @@ function populateInitialTable(array) {
 
 }
 
-populateInitialTable(myLibrary);
+populateTable(myLibrary);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,13 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let newBook = new Book(title, author, pages, read);
         myLibrary.push(newBook);
-        populateInitialTable(myLibrary); 
+        populateTable(myLibrary); 
         form.reset();      
     });
 
 });
-
-function addBookToLibrary() {
-}
 
 
