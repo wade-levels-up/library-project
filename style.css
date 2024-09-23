@@ -184,18 +184,20 @@ input { padding: 3px; border-radius: 10px;}
     }
 
     .container {
-        margin: 10px;
-        padding: 10px;
+        margin: 2px;
+        padding: 3px;
+        width: 100%;
     }
 
     table {
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
+        max-width: 350px;
     }
 
     td, th {
         padding: 3px;
-        font: 16px;
+        font: 14px;
     }
 
     tfoot td {
