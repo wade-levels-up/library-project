@@ -22,7 +22,7 @@ Book.prototype.summary = function() {
 }
 
 // Add initial book to library, log to console to verify it's there
-const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'on');
+const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'off');
 const book2 = new Book('Berserk - Volume: 12', 'Kentaro Miura', 232, 'on');
 const book3 = new Book('Anime Architecture', 'Stefan Riekeles', 256, 'on');
 myLibrary.push(book1); myLibrary.push(book2); myLibrary.push(book3);
