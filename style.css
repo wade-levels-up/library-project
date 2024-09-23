@@ -58,17 +58,17 @@ ul {
 
 table { 
     border-collapse: collapse; 
-    width: 500px;
+    width: 600px;
     height: fit-content;
 }
 
 td, th {
     border: 1px solid var(--main-font-col);
     padding: 0.5rem;
+    text-align: left;
 }
 
 th { background-color: var(--sec-font-col); }
-td { text-align: left; }
 
 /* Form Styling */
 

@@ -27,10 +27,13 @@ myLibrary.push(book2);
 
 function populateInitialTable(array) {
 
-    tbody.innerHTML = '';
+    tbody.innerHTML = ''; // I don't like this solution...
 
     for (i in array) {
 
+        array[i].id = i;
+
+        // For each item in our library make a row of cells to fill in
         let row = document.createElement('tr');
         let title = document.createElement('td');
         let author = document.createElement('td');
@@ -39,18 +42,24 @@ function populateInitialTable(array) {
         let remove = document.createElement('td');
         let removeBtn = document.createElement('button');
 
+        // Fill in the cells from the object data
         title.textContent = array[i].title;
         author.textContent = array[i].author;
         pages.textContent = array[i].pages;
-
         if (array[i].read === 'on') {
             read.textContent = 'yes';
         } else {
             read.textContent = 'no'
         }
         
-        removeBtn.textContent = 'X';
 
+        removeBtn.textContent = 'X';
+        removeBtn.onclick = function () {
+            // How can I make it delete?
+            populateInitialTable(myLibrary);
+        }
+
+        // Add filled in elements into the table body
         tbody.appendChild(row);
         row.appendChild(title);
         row.appendChild(author);
@@ -62,7 +71,7 @@ function populateInitialTable(array) {
 }
 
 populateInitialTable(myLibrary);
-
+console.table(myLibrary);
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('new-book-form');
