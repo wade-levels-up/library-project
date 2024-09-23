@@ -41,6 +41,8 @@ aside {
 aside button {
     padding: 10px 30px 10px 30px;
     border-radius: 15px;
+    cursor: pointer;
+    border: 3px double cadetblue;
 }
 
 table button {
@@ -58,7 +60,7 @@ ul {
 }
 
 .credit {
-    padding: 10px;
+    padding: 1rem;
     background-color: rgb(0, 0, 0, 0.7);
     font-size: 0.8rem;
 }
@@ -66,7 +68,11 @@ ul {
 a {
     text-decoration: none;
     color: cadetblue;
-    margin: 0px 10px 0px 10px;
+    margin: 0.5rem;
+}
+
+a:hover {
+    filter: brightness(1.5);
 }
 
 svg {
