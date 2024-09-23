@@ -1,3 +1,6 @@
+const addBookBtn = document.querySelector('#add-book-btn');
+const tbody = document.querySelector('tbody');
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -15,6 +18,70 @@ Book.prototype.summary = function() {
     }
 }
 
+// Add initial book to library, log to console to verify it's there
+const book1 = new Book('Lord Of The Rings', 'Tolken', 255, 'on');
+const book2 = new Book('Berserk vol:12', 'Kentaro Muira', 132, 'on');
+myLibrary.push(book1);
+myLibrary.push(book2);
+
+
+function populateInitialTable(array) {
+
+    tbody.innerHTML = '';
+
+    for (i in array) {
+
+        let row = document.createElement('tr');
+        let title = document.createElement('td');
+        let author = document.createElement('td');
+        let pages = document.createElement('td');
+        let read = document.createElement('td');
+        let remove = document.createElement('td');
+        let removeBtn = document.createElement('button');
+
+        title.textContent = array[i].title;
+        author.textContent = array[i].author;
+        pages.textContent = array[i].pages;
+
+        if (array[i].read === 'on') {
+            read.textContent = 'yes';
+        } else {
+            read.textContent = 'no'
+        }
+        
+        removeBtn.textContent = 'X';
+
+        tbody.appendChild(row);
+        row.appendChild(title);
+        row.appendChild(author);
+        row.appendChild(pages);
+        row.appendChild(read);
+        row.appendChild(remove);
+        remove.appendChild(removeBtn);
+    }
+}
+
+populateInitialTable(myLibrary);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('new-book-form');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const title = formData.get('input-title');
+        const author = formData.get('input-author');
+        const pages = formData.get('input-pages');
+        const read = formData.get('input-read');
+
+        let newBook = new Book(title, author, pages, read);
+        myLibrary.push(newBook);
+        populateInitialTable(myLibrary);       
+    });
+});
+
 function addBookToLibrary() {
-  // do stuff here
+
 }
