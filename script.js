@@ -1,5 +1,8 @@
 const addBookBtn = document.querySelector('#add-book-btn');
 const tbody = document.querySelector('tbody');
+const aside = document.querySelector('aside');
+const body = document.querySelector('body');
+const root = document.documentElement;
 
 let myLibrary = [];
 
@@ -106,5 +109,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function addBookToLibrary() {
-
 }
