@@ -23,9 +23,9 @@ Book.prototype.summary = function() {
 
 // Add initial book to library, log to console to verify it's there
 const book1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', 1216, 'on');
-const book2 = new Book('Berserk - Volume:12', 'Kentaro Miura', 232, 'on');
-myLibrary.push(book1);
-myLibrary.push(book2);
+const book2 = new Book('Berserk - Volume: 12', 'Kentaro Miura', 232, 'on');
+const book3 = new Book('Anime Architecture', 'Stefan Riekeles', 256, 'on');
+myLibrary.push(book1); myLibrary.push(book2); myLibrary.push(book3);
 
 function removeRefresh(index) {
     myLibrary.splice(index, 1);
@@ -84,11 +84,14 @@ function populateInitialTable(array) {
         read.appendChild(toggleReadBtn);
         row.appendChild(remove);
         remove.appendChild(removeBtn);
+
+        
     }
+
 }
 
 populateInitialTable(myLibrary);
-console.table(myLibrary);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('new-book-form');
@@ -104,9 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let newBook = new Book(title, author, pages, read);
         myLibrary.push(newBook);
-        populateInitialTable(myLibrary);       
+        populateInitialTable(myLibrary); 
+        form.reset();      
     });
+
 });
 
 function addBookToLibrary() {
 }
+
+
