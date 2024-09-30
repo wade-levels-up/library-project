@@ -16,3 +16,5 @@ I wasn't so happy with how this was coming together in the beginning as my solut
 I overcame this by assigning the index of each book in the array to it's delete button when it was created. This way, the delete button didn't have to go searching for the book, instead it would correspond to it's index - the value was baked in when the table entry was created.
 
 Completed 23/9/24.
+
+Revisting 30/9/24, My objective is to refactor this project to utilize classes instead of plain constructors. For this purpose I've created a 'classes' branch from the main.
