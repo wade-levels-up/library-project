@@ -132,8 +132,10 @@ caption {
 /* Form Styling */
 
 ul { display: grid; gap: 15px; width: 20%}
-li { display: flex; justify-content: space-between; gap: 10px;}
+li { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; align-items: center;}
 input { padding: 3px; border-radius: 10px;}
+input:invalid { border: 2px solid red; }
+input:valid { border: 2px solid green; background-color: rgb(176, 243, 176);}
 #input-read {
     accent-color: green;
     width: 1rem;
